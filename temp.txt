@@ -1,0 +1,7 @@
+<div class="gallery-item animate">
+                    <img src="assets/images/graphic2.jpg" alt="Graphic Design 2" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Project Title 2</h3>
+                        <p>Description of the graphic design and its purpose</p>
+                    </div>
+                </div>
