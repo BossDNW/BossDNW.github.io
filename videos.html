@@ -6,6 +6,145 @@
     <title>D'mari Williams' | Video Designs</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Video container hover styles */
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            border-radius: 8px;
+        }
+        
+        .video-item .video-player {
+            width: 100%;
+            display: block;
+            transition: filter 0.3s ease;
+        }
+        
+        /* Fullscreen overlay that appears on hover */
+        .fullscreen-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            z-index: 5;
+        }
+        
+        .video-item:hover .fullscreen-overlay {
+            opacity: 1;
+        }
+        
+        .fullscreen-overlay i {
+            color: white;
+            font-size: 3rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: scale(0.8);
+        }
+        
+        .video-item:hover .fullscreen-overlay i {
+            transform: scale(1);
+        }
+        
+        .fullscreen-overlay i:hover {
+            background: var(--primary-color, #3498db);
+            transform: scale(1.1);
+        }
+        
+        /* Video controls positioning */
+        .video-controls {
+            position: relative;
+            padding: 15px 20px;
+            background: white;
+        }
+        
+        /* Play button should be on top of the overlay */
+        .play-btn {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Fullscreen styles */
+        .video-item:-webkit-full-screen {
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .video-item:-webkit-full-screen .video-player {
+            flex: 1;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .video-item:-webkit-full-screen .video-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 15px 25px;
+            width: auto;
+            max-width: 80%;
+        }
+        
+        .video-item:-webkit-full-screen .fullscreen-overlay {
+            display: none;
+        }
+        
+        .video-item:-webkit-full-screen .play-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .video-item:-webkit-full-screen .video-caption h3,
+        .video-item:-webkit-full-screen .video-caption p {
+            color: white;
+        }
+        
+        /* Exit fullscreen button */
+        .exit-fullscreen-btn {
+            display: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .exit-fullscreen-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .video-item:-webkit-full-screen .exit-fullscreen-btn {
+            display: inline-block;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .fullscreen-overlay i {
+                font-size: 2rem;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -27,14 +166,18 @@
     <main>
         <section class="video-gallery">
             <div class="gallery-grid">
-
+                <!-- Video 1 -->
                 <div class="video-item">
                     <video class="video-player" preload="metadata" poster="assets/videos/fixated.png">
                         <source src="assets/videos/Fixated.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <div class="fullscreen-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
                     <div class="video-controls">
                         <button class="play-btn"><i class="fas fa-play"></i></button>
+                        <button class="exit-fullscreen-btn"><i class="fas fa-compress"></i> Exit</button>
                         <div class="video-caption">
                             <h3>Fixated Video</h3>
                             <p>Digital Media SBA Project which I edited (Animated by Jaden Khan)</p>
@@ -42,13 +185,18 @@
                     </div>
                 </div>
                 
+                <!-- Video 2 -->
                 <div class="video-item">
                     <video class="video-player" preload="metadata" poster="assets/videos/selvon.png">
                         <source src="assets/videos/Grandpa Selvon Birthday Vid 1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <div class="fullscreen-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
                     <div class="video-controls">
                         <button class="play-btn"><i class="fas fa-play"></i></button>
+                        <button class="exit-fullscreen-btn"><i class="fas fa-compress"></i> Exit</button>
                         <div class="video-caption">
                             <h3>A Family Reminiscance Slideshow</h3>
                             <p>A Slideshow for a friend's grandfather's birthday [Shortened Version]</p>
@@ -56,20 +204,24 @@
                     </div>
                 </div>
                 
+                <!-- Video 3 -->
                 <div class="video-item">
                     <video class="video-player" preload="metadata" poster="assets/videos/company.png">
                         <source src="assets/videos/Positive Company Typography.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <div class="fullscreen-overlay">
+                        <i class="fas fa-expand"></i>
+                    </div>
                     <div class="video-controls">
                         <button class="play-btn"><i class="fas fa-play"></i></button>
+                        <button class="exit-fullscreen-btn"><i class="fas fa-compress"></i> Exit</button>
                         <div class="video-caption">
                             <h3>Company Typography</h3>
                             <p>A short 26 second clip of a typography video to Positive's song "Company"</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>
@@ -85,5 +237,133 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Enhanced video player with hover fullscreen
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoPlayers = document.querySelectorAll('.video-item');
+            
+            videoPlayers.forEach(container => {
+                const video = container.querySelector('.video-player');
+                const playBtn = container.querySelector('.play-btn');
+                const playIcon = playBtn.querySelector('i');
+                const fullscreenOverlay = container.querySelector('.fullscreen-overlay');
+                const exitFullscreenBtn = container.querySelector('.exit-fullscreen-btn');
+                
+                // Play/Pause functionality
+                playBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    togglePlayPause(video, playIcon);
+                });
+                
+                // Click on video to play/pause
+                video.addEventListener('click', function() {
+                    togglePlayPause(video, playIcon);
+                });
+                
+                // Hover fullscreen - click on overlay
+                fullscreenOverlay.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    toggleFullscreen(container);
+                });
+                
+                // Exit fullscreen button
+                exitFullscreenBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    exitFullscreen();
+                });
+                
+                // Video ended
+                video.addEventListener('ended', function() {
+                    playIcon.classList.replace('fa-pause', 'fa-play');
+                    video.classList.add('paused');
+                });
+                
+                // Keyboard controls in fullscreen
+                container.addEventListener('keydown', function(e) {
+                    if (document.fullscreenElement === container) {
+                        if (e.key === ' ' || e.key === 'Spacebar') {
+                            e.preventDefault();
+                            togglePlayPause(video, playIcon);
+                        } else if (e.key === 'Escape') {
+                            exitFullscreen();
+                        } else if (e.key === 'f' || e.key === 'F') {
+                            toggleFullscreen(container);
+                        }
+                    }
+                });
+            });
+            
+            function togglePlayPause(video, playIcon) {
+                if (video.paused) {
+                    video.play();
+                    playIcon.classList.replace('fa-play', 'fa-pause');
+                    video.classList.remove('paused');
+                } else {
+                    video.pause();
+                    playIcon.classList.replace('fa-pause', 'fa-play');
+                    video.classList.add('paused');
+                }
+            }
+            
+            function toggleFullscreen(element) {
+                if (!document.fullscreenElement) {
+                    if (element.requestFullscreen) {
+                        element.requestFullscreen();
+                    } else if (element.webkitRequestFullscreen) {
+                        element.webkitRequestFullscreen();
+                    } else if (element.msRequestFullscreen) {
+                        element.msRequestFullscreen();
+                    }
+                } else {
+                    exitFullscreen();
+                }
+            }
+            
+            function exitFullscreen() {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+            }
+            
+            // Update fullscreen button icons
+            document.addEventListener('fullscreenchange', updateFullscreenUI);
+            document.addEventListener('webkitfullscreenchange', updateFullscreenUI);
+            document.addEventListener('msfullscreenchange', updateFullscreenUI);
+            
+            function updateFullscreenUI() {
+                const isFullscreen = !!document.fullscreenElement;
+                const overlays = document.querySelectorAll('.fullscreen-overlay i');
+                const exitButtons = document.querySelectorAll('.exit-fullscreen-btn');
+                
+                overlays.forEach(icon => {
+                    if (isFullscreen) {
+                        icon.classList.replace('fa-expand', 'fa-compress');
+                    } else {
+                        icon.classList.replace('fa-compress', 'fa-expand');
+                    }
+                });
+                
+                exitButtons.forEach(btn => {
+                    if (isFullscreen) {
+                        btn.style.display = 'inline-block';
+                    } else {
+                        btn.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Initial state - hide exit fullscreen buttons
+            document.querySelectorAll('.exit-fullscreen-btn').forEach(btn => {
+                btn.style.display = 'none';
+            });
+            
+            // Update copyright year
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
