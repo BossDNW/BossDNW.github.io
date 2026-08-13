@@ -3,10 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | GitHub Projects</title>
+    <title>GitHub Projects | D'mari Williams</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<style>
+        /* Coming Soon Styles */
+        .coming-soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .coming-soon i {
+            font-size: 4rem;
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .coming-soon h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 500px;
+            line-height: 1.6;
+        }
+        
+        .coming-soon .sub-text {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #95a5a6;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .coming-soon {
+                min-height: 300px;
+                padding: 3rem 1.5rem;
+            }
+            
+            .coming-soon h2 {
+                font-size: 2rem;
+            }
+            
+            .coming-soon i {
+                font-size: 3rem;
+            }
+        }
+    </style>
 <body>
     <header>
         <h1>GitHub Projects</h1>
@@ -20,44 +88,17 @@
             <li><a href="videos.html">Videos</a></li>
             <li><a href="webgames/">Web Games</a></li>
             <li><a href="devlogs.html">Dev Logs</a></li>
-            <li><a href="github.html" class="active">GitHub</a></li>
+            <li><a href="github.html" class="active">GitHub Projects</a></li>
         </ul>
     </nav>
 
     <main>
-        <section class="github-projects">
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <a href="https://github.com/yourusername/project1" target="_blank">
-                        <img src="assets/github/project1.jpg" alt="Project 1">
-                        <div class="project-info">
-                            <h3>Project Name 1</h3>
-                            <p>Short description of the project and technologies used</p>
-                            <div class="github-stats">
-                                <span><i class="fas fa-star"></i> 120</span>
-                                <span><i class="fas fa-code-branch"></i> 45</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <a href="https://github.com/yourusername/project2" target="_blank">
-                        <img src="assets/github/project2.jpg" alt="Project 2">
-                        <div class="project-info">
-                            <h3>Project Name 2</h3>
-                            <p>Short description of the project and technologies used</p>
-                            <div class="github-stats">
-                                <span><i class="fas fa-star"></i> 85</span>
-                                <span><i class="fas fa-code-branch"></i> 32</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <!-- Add more projects as needed -->
+        <section class="devlogs">
+            <div class="coming-soon">
+                <i class="fas fa-code"></i>
+                <h2>Coming Soon</h2>
+                <p>I'm currently working on some exciting projects and will be sharing my development journey here soon!</p>
+                <p class="sub-text">Check back later for updates, tutorials, and behind-the-scenes content.</p>
             </div>
         </section>
     </main>
